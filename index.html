@@ -55,7 +55,7 @@ let bridgeReady=false,bridgeSource=null,bridgeOrigin=null;const pendingCalls=new
 const trustedOrigin=o=>o==='https://script.google.com'||/^https:\/\/(?:[a-z0-9-]+\.)?googleusercontent\.com$/.test(o);
 window.addEventListener('message',e=>{
   if(!trustedOrigin(e.origin)||!e.data)return;
-  if(e.data.kind==='stefan-ready'){bridgeSource=e.source;bridgeOrigin=e.origin;bridgeReady=true;window.dispatchEvent(new Event('stefan-ready'));return;}
+  if(e.data.kind==='stefan-ready'){if(!session&&e.data.hasSession)session='__bridge_session__';bridgeSource=e.source;bridgeOrigin=e.origin;bridgeReady=true;window.dispatchEvent(new Event('stefan-ready'));return;}
   if(e.data.kind!=='stefan-response')return;
   const p=pendingCalls.get(e.data.id);if(!p)return;
   clearTimeout(p.timer);pendingCalls.delete(e.data.id);
@@ -139,12 +139,12 @@ async function start(){try{const status=await api('apiStatus');if(!status.config
 async function reload(){state=await api('apiSnapshot',session);render();}
 function renderSetupNeeded(){app.innerHTML=`<div class="authwrap"><div class="authbox"><div class="brand"><div class="logo">Š</div><b>Štefan bistro</b></div><h1>Je potřeba první nastavení</h1><p>Vlastník databáze musí v editoru Apps Script nejprve spustit funkci <code>setupProject_</code> a autorizovat přístup.</p><button class="btn" data-action="retry">Zkusit znovu</button></div></div>`;}
 function renderAuth(initialized){
-  app.innerHTML=`<div class="authwrap"><div class="authbox"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><h1>${initialized?'Přístup pro tým':'Založení vedoucího'}</h1><p class="subtle">${initialized?'Zadejte jednorázový osobní pozvánkový kód od vedoucího. Po aktivaci zůstane přihlášení uložené v tomto prohlížeči.':'První nastavení smí provést pouze Michal Urbánek pomocí kódu v protokolu Apps Script.'}</p>
-  <form class="form" id="access-form" data-initialized="${initialized?'yes':'no'}"><div class="field"><label for="access-code">${initialized?'Pozvánkový kód':'Inicializační kód'}</label><input id="access-code" name="code" type="password" autocomplete="off" minlength="4" required placeholder="Vložte osobní nebo vedoucí kód"></div><button class="btn" type="submit">${initialized?'Aktivovat přístup':'Založit vedoucího'}</button></form><p class="mini subtle">Přístupový kód je osobní. Nikdy ho neposílejte do veřejné skupiny.</p></div></div>`;
+  app.innerHTML=`<div class="authwrap"><div class="authbox"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><h1>${initialized?'Přístup pro tým':'Založení vedoucího'}</h1><p class="subtle">${initialized?'Zadejte svůj trvalý osobní kód nebo jednorázovou pozvánku od vedoucího.':'První nastavení smí provést pouze Michal Urbánek pomocí kódu v protokolu Apps Script.'}</p>
+  <form class="form" id="access-form" data-initialized="${initialized?'yes':'no'}"><div class="field"><label for="access-code">${initialized?'Přístupový kód':'Inicializační kód'}</label><input id="access-code" name="code" type="password" autocomplete="off" minlength="4" required placeholder="Vložte osobní nebo vedoucí kód"></div><button class="btn" type="submit">${initialized?'Aktivovat přístup':'Založit vedoucího'}</button></form><p class="mini subtle">Přístupový kód je osobní. Nikdy ho neposílejte do veřejné skupiny.</p></div></div>`;
 }
 function navButton(id,label){return `<button type="button" data-nav="${id}" class="${page===id?'on':''}">${label}</button>`;}
 function render(){if(!state){start();return;}
-  app.innerHTML=`<main class="shell"><header class="top"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><div class="user"><div><strong>${esc(state.user.jmeno)}</strong><small>${adm()?'Vedoucí':'Pracovník'}</small></div><button class="btn secondary small" data-action="logout">Odhlásit</button></div></header>
+  app.innerHTML=`<main class="shell"><header class="top"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><div class="user"><div><strong>${esc(state.user.jmeno)}</strong><small>${adm()?'Vedoucí':'Pracovník'}</small></div><button class="btn secondary small" data-action="owncode">Změnit kód</button><button class="btn secondary small" data-action="logout">Odhlásit</button></div></header>
   <nav class="tabs" aria-label="Hlavní navigace">${navButton('prehled','Plánování směn')}${navButton('moje','Moje směny')}${navButton('dostupnost','Dostupnost')}<a href="/catalog/" class="catalog-link">Katalog a receptury</a>${adm()?navButton('sprava','Tým a správa'):''}</nav><section id="content">${content()}</section><footer>Štefan bistro · Soukromý plánovací systém směn. Časy: Europe/Prague.</footer></main>`;
 }
 function heading(title,sub='',actions=''){return `<div class="pagehead"><div><h1>${esc(title)}</h1><p class="subtle">${esc(sub)}</p></div>${actions}</div>`;}
@@ -228,9 +228,10 @@ function adminRequests(){let h='<section class="panel"><h2>Žádosti zaměstnanc
 }
 function shiftLabel(id){const s=state.shifts.find(x=>x.id===id);return s?`${longDate(s.datum)} ${s.od}–${s.do}`:id;}
 function adminTeam(){let h='<section class="panel"><div class="row spaced"><div><h2>Tým</h2><p class="subtle">Správa pracovníků, rolí a přístupů.</p></div><button class="btn" data-action="newworker">+ Přidat pracovníka</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Jméno</th><th>Role</th><th>E-mail</th><th>Telefon</th><th>Stav a akce</th></tr></thead><tbody>';
-  h+=state.employees.map(w=>'<tr><td><b>'+esc(w.jmeno)+'</b></td><td>'+(w.role==='vedouci'?'Vedoucí':'Obsluha')+'</td><td>'+esc(w.email||'—')+'</td><td>'+esc(w.telefon||'—')+'</td><td>'+(w.aktivni==='ano'?'Aktivní':'Vyřazen')+' <button class="btn secondary small" data-action="editworker" data-id="'+esc(w.id)+'">Upravit</button> '+(w.aktivni==='ano'?'<button class="btn small" data-action="invite" data-id="'+esc(w.id)+'">Nový kód</button> <button class="btn danger small" data-action="deleteworker" data-id="'+esc(w.id)+'">Vyřadit</button>':'<button class="btn secondary small" data-action="restoreworker" data-id="'+esc(w.id)+'">Obnovit</button>')+'</td></tr>').join('');
+  h+=state.employees.map(w=>'<tr><td><b>'+esc(w.jmeno)+'</b></td><td>'+(w.role==='vedouci'?'Vedoucí':'Obsluha')+'</td><td>'+esc(w.email||'—')+'</td><td>'+esc(w.telefon||'—')+'</td><td>'+(w.aktivni==='ano'?'Aktivní':'Vyřazen')+' <button class="btn secondary small" data-action="editworker" data-id="'+esc(w.id)+'">Upravit</button> '+(w.aktivni==='ano'?'<button class="btn small" data-action="teamcode" data-id="'+esc(w.id)+'">Obnovit kód</button> <button class="btn danger small" data-action="deleteworker" data-id="'+esc(w.id)+'">Vyřadit</button>':'<button class="btn secondary small" data-action="restoreworker" data-id="'+esc(w.id)+'">Obnovit</button>')+'</td></tr>').join('');
   return h+'</tbody></table></div></section>';
 }
+function codeModal(id=''){const w=state?.employees.find(x=>x.id===id);modal(id?'Obnovit kód: '+w.jmeno:'Změnit vlastní kód','<form id="code-form" data-id="'+esc(id)+'" class="form"><div class="field"><label for="new-code">Nový trvalý kód (4 znaky)</label><input id="new-code" name="code" type="password" minlength="4" maxlength="4" pattern="[A-Za-z0-9]{4}" autocomplete="new-password" required></div><p class="help">Kód platí do další změny. Po uložení se dřívější přihlášení tohoto účtu ukončí.</p><button class="btn" type="submit">Uložit kód</button></form>');}
 function teamModal(id=''){const w=state.employees.find(x=>x.id===id)||{};
   modal(id?'Upravit pracovníka':'Přidat pracovníka','<form id="team-form" data-id="'+esc(id)+'" class="form"><div class="field"><label>Jméno a příjmení</label><input name="jmeno" required maxlength="100" value="'+esc(w.jmeno||'')+'"></div><div class="field"><label>Role</label><select name="role"><option value="pracovnik" '+(w.role!=='vedouci'?'selected':'')+'>Obsluha</option><option value="vedouci" '+(w.role==='vedouci'?'selected':'')+'>Vedoucí</option></select></div><div class="field"><label>Telefon</label><input name="telefon" type="tel" value="'+esc(w.telefon||'')+'"></div><div class="field"><label>E-mail</label><input name="email" type="email" value="'+esc(w.email||'')+'"></div><div class="btn-row"><button class="btn" type="submit">Uložit</button><button class="btn secondary" type="button" data-action="closemodal">Zrušit</button></div></form>');
 }
@@ -291,6 +292,8 @@ document.addEventListener('click',async e=>{
   const b=e.target.closest('[data-action]');if(!b)return;
   const act=b.dataset.action,id=b.dataset.id;
   if(act==='retry'){start();return;}
+  if(act==='owncode'){codeModal();return;}
+  if(act==='teamcode'){codeModal(id);return;}
   if(act==='closemodal'){closeModal();return;}
   if(act==='copyinvite'){const okay=await copyText($('#invite-message')?.value||'');if(okay)closeModal();toast(okay?'Celá pozvánka zkopírována – odkaz i kód':'Zkopírujte zprávu ručně',!okay);return;}
   if(act==='opensms'){setTimeout(()=>{closeModal();toast('SMS připravena. Odeslání potvrďte v telefonu.');},0);return;}
@@ -327,6 +330,7 @@ document.addEventListener('submit',async e=>{
     if(busy)return;busy=true;
     try{const result=await api(form.dataset.initialized==='yes'?'apiJoin':'apiSetupAdmin',data.code);saveToken(result.token);await reload();toast('Přístup aktivován');}catch(ex){toast(ex.message,true);}finally{busy=false;}return;
   }
+  if(form.id==='code-form'){try{await api(form.dataset.id?'apiAdminSetCode':'apiSetOwnCode',session,...(form.dataset.id?[form.dataset.id]:[]),data.code);if(!form.dataset.id)clearToken();closeModal();if(form.dataset.id)await reload();else await start();toast(form.dataset.id?'Kód pracovníka uložen.':'Kód uložen. Přihlaste se novým kódem.');}catch(ex){toast(ex.message,true);}return;}
   if(form.id==='new-request'){
     await operation('apiRequest',{typ:data.typ,datum:data.datum,od:data.typ==='navrh'?data.od:'',do:data.typ==='navrh'?data.do:'',poznamka:data.poznamka});return;
   }
