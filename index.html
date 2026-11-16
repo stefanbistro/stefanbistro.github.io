@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e9">
+  <title>Štefan bistro – plán směn</title>
+  <style>:root{--bg:#f4f0e9;--paper:#fffdfa;--ink:#252a28;--muted:#717873;--line:#e4e1d8;--accent:#af6349;--accentdark:#8b4832;--soft:#f9eadf;--mint:#e9f4ec;--red:#a53636;--shadow:0 5px 24px rgba(28,32,30,.055);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}*{box-sizing:border-box}body{margin:0;font-size:15px;line-height:1.45}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}h1,h2,h3,h4,p{margin-top:0}h1{font-size:clamp(24px,4vw,34px);line-height:1.2;letter-spacing:-.03em}h2{font-size:21px;letter-spacing:-.02em}h3{font-size:16px;margin-bottom:8px}p{line-height:1.55}small,.subtle{color:var(--muted)}a{color:var(--accentdark)}.shell{max-width:1250px;margin:auto;padding:20px 26px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0 23px}.brand{display:flex;align-items:center;gap:12px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#2d3730;color:#fff;letter-spacing:-.04em;font-size:20px;font-weight:800}.brand b{font-size:19px}.brand small{display:block;font-size:12px}.user{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tabs{display:flex;gap:6px;flex-wrap:wrap;background:#e9e7e1;padding:6px;border-radius:16px;width:fit-content;margin:0 0 22px}.tabs button,.seg button{background:transparent;color:#5b625f;border:0;border-radius:11px;padding:10px 15px;font-weight:600}.tabs .catalog-link{display:inline-flex;align-items:center;padding:10px 15px;color:#5b625f;text-decoration:none;font-weight:600}.tabs button.on,.seg button.on{background:white;color:var(--ink);box-shadow:0 1px 8px #00000010}.pagehead{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap}.pagehead p{margin:8px 0 0}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.row.spaced{justify-content:space-between}.column{display:flex;flex-direction:column;gap:12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cards{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.day{background:var(--paper);border:1px solid var(--line);border-radius:14px;min-height:230px;padding:12px;min-width:0}.day.today{border-color:#c68b76;box-shadow:0 0 0 1px #c68b76}.day h3{font-size:13px;margin:0 0 14px}.day h3 span{display:block;font-size:25px;font-weight:750}.shift{background:#f8f5f1;border:1px solid #e4ddd4;border-left:4px solid var(--accent);padding:10px;margin-bottom:9px;border-radius:9px;font-size:12px;overflow-wrap:anywhere}.shift strong{display:block;font-size:13px}.shift p{font-size:12px;margin:4px 0}.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}.panel{margin-bottom:16px}.panel>h2,.panel>h3{margin:0 0 16px}.panel.compact{padding:13px}.list{list-style:none;padding:0;margin:0}.list>li{border-bottom:1px solid var(--line);padding:13px 0}.list>li:last-child{border-bottom:0}.mini{font-size:12px}.pill{display:inline-flex;border-radius:50px;background:#eceae3;color:#53574f;padding:4px 9px;font-size:11px;font-weight:700;white-space:nowrap}.pill.green{background:#deefe3;color:#27613c}.pill.amber{background:#fff0d4;color:#8e5e18}.pill.red{background:#ffe5e5;color:#963c3c}.pill.draft{background:#e9e6ef;color:#65536d}.btn{background:var(--accent);color:#fff;border:1px solid transparent;border-radius:11px;padding:10px 14px;min-height:41px;font-weight:700}.btn:hover:not(:disabled){background:var(--accentdark)}.btn.secondary{background:white;border-color:#d8d9d1;color:var(--ink)}.btn.secondary:hover{background:#f6f4ef}.btn.ghost{background:transparent;color:#47534a;border:0}.btn.danger{background:#fff0f0;color:#8c2828;border:1px solid #f3cfcf}.btn.small{padding:6px 10px;min-height:32px;font-size:12px;border-radius:8px}.btn.outline{background:transparent;border-color:#ccab9b;color:var(--accentdark)}.btn-row{display:flex;flex-wrap:wrap;gap:8px}.weeknav{display:flex;gap:9px;align-items:center}.weeknav span{font-weight:650;white-space:nowrap}.empty{padding:16px;background:#faf8f3;color:var(--muted);border:1px dashed #dcd9d2;border-radius:10px}.form{display:grid;gap:14px}.form.two{grid-template-columns:repeat(2,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:12px;font-weight:700;color:#515d55}.field input,.field select,.field textarea,.input{border:1px solid #d7d9d0;background:white;border-radius:10px;padding:10px 12px;width:100%;min-height:43px;outline:none;max-width:100%}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px #be7f6024}.field textarea{resize:vertical;min-height:85px}.span2{grid-column:span 2}.tablewrap{overflow-x:auto}.table{width:100%;border-collapse:collapse;min-width:640px}.table th{text-align:left;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:11px;border-bottom:1px solid var(--line)}.table td{padding:12px 11px;border-bottom:1px solid #efede8;vertical-align:middle}.table tr:last-child td{border-bottom:0}.table td .btn{white-space:nowrap}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}.metric{padding:18px;border:1px solid var(--line);border-radius:13px;background:white}.metric strong{display:block;font-size:24px}.metric small{font-size:12px}.seg{display:flex;gap:3px;background:#ece9e3;padding:5px;border-radius:12px;width:fit-content;flex-wrap:wrap;margin-bottom:16px}.authwrap{min-height:100vh;display:grid;place-items:center;padding:26px}.authbox{max-width:460px;width:100%;padding:28px;border:1px solid var(--line);background:var(--paper);border-radius:22px;box-shadow:var(--shadow)}.authbox h1{font-size:28px;margin:18px 0 6px}.authbox form{margin-top:26px}.initial{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px}.spinner{height:32px;width:32px;border-radius:50%;border:3px solid #d4d4c9;border-top-color:var(--accent);animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#toasts{position:fixed;bottom:20px;right:20px;display:grid;gap:8px;z-index:50}.toast{background:#28302d;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);max-width:400px}.toast.error{background:#852b2b}.modalbg{position:fixed;inset:0;background:#10191695;z-index:30;display:flex;align-items:center;justify-content:center;padding:16px}.modal{background:white;max-width:540px;width:100%;max-height:88vh;overflow-y:auto;border-radius:16px;padding:24px}.help{padding:12px 15px;background:#f2eee6;border-radius:10px;color:#646a62;font-size:13px}.secret{background:#eaf4ee;border:1px solid #b1d8c2;padding:16px;border-radius:10px;overflow-wrap:anywhere}.secret code{display:block;margin:8px 0 12px;font-size:13px}.initials{width:32px;height:32px;display:inline-grid;place-items:center;border-radius:50%;background:#f0d9c7;color:#774932;font-weight:700}.hide{display:none!important}.divider{height:1px;background:var(--line);margin:18px 0}.sep{color:#a5aca5}.calendar-title{font-size:12px;text-transform:uppercase;font-weight:700;color:#8e7b6b;letter-spacing:.07em}.no-break{white-space:nowrap}.warning{background:#fff1de;border:1px solid #edca97;padding:10px 14px;border-radius:9px;color:#805724;font-size:13px}footer{font-size:12px;color:var(--muted);padding-top:25px}.periodnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.viewseg{margin:0}.monthcards .day{min-height:150px}.monthcards .shift{padding:8px;margin-bottom:7px}.monthcards .shift p{display:none}@media(max-width:1080px){.monthcards{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:740px){.monthcards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:1080px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.day{min-height:180px}}@media(max-width:740px){.shell{padding:13px 12px 40px}.top{align-items:flex-start}.tabs{width:100%;overflow:auto;flex-wrap:nowrap}.tabs button,.tabs .catalog-link{white-space:nowrap;padding:11px 10px;font-size:12px}.grid,.form.two,.summary{grid-template-columns:1fr}.span2{grid-column:auto}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.day{min-height:0}.pagehead{align-items:flex-start}.pagehead h1{font-size:25px}.user{justify-content:flex-end}.user small{display:none}.panel{padding:15px}.form.two .btn-row{grid-column:1}.table{min-width:600px}.authbox{padding:21px}.metric strong{font-size:20px}}@media(max-width:420px){.cards{grid-template-columns:1fr}.day{min-height:0}.brand b{font-size:16px}.logo{width:38px;height:38px}.user .btn{font-size:11px;padding:8px 9px}}
+</style>
+</head>
+<body>
+  <div id="app"><div class="initial"><div class="spinner"></div><p>Načítám Štefan bistro…</p></div></div>
+  <div id="toasts" aria-live="polite"></div>
+  <script>(() => {
+'use strict';
+const APP='Štefan bistro';
+const $=sel=>document.querySelector(sel);
+const app=$('#app');
+let session='';
+try{session=localStorage.getItem('stefan_session')||'';}catch(e){}
+let state=null, page='prehled', adminPage='plan',monday=mondayOf(todayPrague()),view='week',busy=false;
+const WEEK=['Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota','Neděle'];
+const TYPE={prihlaseni:'Přihlášení na směnu',uvolneni:'Uvolnění směny',volno:'Žádost o volno',navrh:'Návrh nové směny'};
+const STATUS={ceka:'Čeká',schvaleno:'Schváleno',zamitnuto:'Zamítnuto',zruseno:'Zrušeno'};
+const AV={mohu:'Mohu',nemohu:'Nemohu',preferuji:'Preferuji'};
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function todayPrague(){const x=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Europe/Prague',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).map(y=>[y.type,y.value]));return `${x.year}-${x.month}-${x.day}`;}
+function addDays(date,n){const d=new Date(date+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
+function mondayOf(date){const d=new Date(date+'T00:00:00Z');return addDays(date,-((d.getUTCDay()+6)%7));}
+function dates(){return Array.from({length:7},(_,i)=>addDays(monday,i));}
+function monthDates(){const first=monday.slice(0,7)+'-01';const next=new Date(first+'T12:00:00Z');next.setUTCMonth(next.getUTCMonth()+1);const count=Math.round((next-new Date(first+'T12:00:00Z'))/86400000);return Array.from({length:count},(_,i)=>addDays(first,i));}
+function weekday(d){return new Intl.DateTimeFormat('cs-CZ',{weekday:'long',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z')).replace(/^./,c=>c.toUpperCase());}
+function humanDate(d){if(!d)return '—';return weekday(d)+' '+new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'long',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z'));}
+function longDate(d){if(!d)return '—';return weekday(d)+' '+new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z'));}
+function dateTime(iso){if(!iso)return '—';const dt=new Date(iso);return isNaN(dt)?'—':new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Prague'}).format(dt);}
+function planned(s){const t=x=>{const [h,m]=x.split(':').map(Number);return h*60+m};return ((t(s.do)-t(s.od)+1440)%1440||1440)/60;}
+function worked(a){if(!a.odchod)return 0;return Math.max(0,(Date.parse(a.odchod)-Date.parse(a.prichod))/3600000);}
+function hours(x){return x.toLocaleString('cs-CZ',{maximumFractionDigits:1})+' h';}
+function name(id){return state?.employees.find(e=>e.id===id)?.jmeno||id||'—';}
+function position(id){return state?.positions.find(p=>p.id===id)?.nazev||'Bez pozice';}
+function assigned(sid){return (state?.assignments||[]).filter(a=>a.smena_id===sid);}
+function own(sid){return assigned(sid).some(a=>a.pracovnik_id===state.user.id);}
+function pending(sid,kind){return state.requests.some(r=>r.stav==='ceka'&&r.smena_id===sid&&r.typ===kind&&r.pracovnik_id===state.user.id);}
+function adm(){return state?.user.role==='vedouci';}
+function tag(t){const cls=t==='schvaleno'||t==='zverejneno'?'green':t==='ceka'?'amber':t==='zamitnuto'?'red':'draft';return `<span class="pill ${cls}">${esc(STATUS[t]||t)}</span>`;}
+function toast(txt,err=false){const el=document.createElement('div');el.className='toast'+(err?' error':'');el.setAttribute('role',err?'alert':'status');el.textContent=txt;$('#toasts').append(el);setTimeout(()=>el.remove(),6500);}
+const BRIDGE_URL='https://script.google.com/macros/s/AKfycbzDs1fVawoxVXJ0fY3_yTByYoW2DmWYesiBF4IJp8G3_5Ww1BLzNJcTXlCJAKIx55GM/exec?bridge=1';
+const bridge=document.createElement('iframe');
+bridge.title='Bezpečné spojení s plánováním směn';
+bridge.style.cssText='position:absolute;width:1px;height:1px;opacity:0;pointer-events:none';
+bridge.setAttribute('aria-hidden','true');
+bridge.src=BRIDGE_URL;
+document.body.append(bridge);
+let bridgeReady=false,bridgeSource=null,bridgeOrigin=null;const pendingCalls=new Map();
+const trustedOrigin=o=>o==='https://script.google.com'||/^https:\/\/(?:[a-z0-9-]+\.)?googleusercontent\.com$/.test(o);
+window.addEventListener('message',e=>{
+  if(!trustedOrigin(e.origin)||!e.data)return;
+  if(e.data.kind==='stefan-ready'){bridgeSource=e.source;bridgeOrigin=e.origin;bridgeReady=true;window.dispatchEvent(new Event('stefan-ready'));return;}
+  if(e.data.kind!=='stefan-response')return;
+  const p=pendingCalls.get(e.data.id);if(!p)return;
+  clearTimeout(p.timer);pendingCalls.delete(e.data.id);
+  e.data.ok?p.resolve(e.data.value):p.reject(new Error(String(e.data.value||'Operace selhala.')));
+});
+function api(fn,...args){return new Promise((resolve,reject)=>{
+  const send=()=>{
+    const id=crypto.randomUUID();
+    const timer=setTimeout(()=>{pendingCalls.delete(id);reject(new Error('Spojení se serverem vypršelo.'))},30000);
+    pendingCalls.set(id,{resolve,reject,timer});
+    bridgeSource.postMessage({kind:'stefan-request',id,method:fn,args},bridgeOrigin);
+  };
+  if(bridgeReady)send();else{
+    const timer=setTimeout(()=>{window.removeEventListener('stefan-ready',onReady);reject(new Error('Spojení s plánováním směn není dostupné.'))},15000);
+    const onReady=()=>{clearTimeout(timer);send()};window.addEventListener('stefan-ready',onReady,{once:true});
+  }
+});}
+let modalOrigin=null;
+const ACTION_MESSAGES={apiRequest:'Žádost odeslána',apiCancelRequest:'Žádost zrušena',apiAvailability:'Dostupnost uložena',apiAdminShift:'Směna uložena',apiAdminDeleteShift:'Směna smazána',apiAdminAssign:'Pracovník přiřazen',apiAdminUnassign:'Pracovník odebrán',apiAdminCopyWeek:'Směny zkopírovány do dalšího týdne',apiAdminPosition:'Pozice uložena',apiAdminAttendance:'Oprava docházky uložena',apiAdminPhone:'Telefon uložen'};
+function captureView(){
+  const el=document.activeElement;
+  return {page,adminPage,monday,x:window.scrollX,y:window.scrollY,focusId:el?.id||'',action:el?.dataset?.action||'',actionId:el?.dataset?.id||'',tables:Array.from(document.querySelectorAll('.tablewrap')).map(el=>el.scrollLeft)};
+}
+function restoreView(view){
+  if(!view)return;
+  page=view.page;adminPage=view.adminPage;monday=view.monday;
+  requestAnimationFrame(()=>{
+    const focus=view.focusId?document.getElementById(view.focusId):view.action?Array.from(document.querySelectorAll('[data-action]')).find(el=>el.dataset.action===view.action&&(el.dataset.id||'')===view.actionId):null;
+    focus?.focus({preventScroll:true});
+    document.querySelectorAll('.tablewrap').forEach((el,i)=>{el.scrollLeft=view.tables[i]||0;});
+    window.scrollTo(view.x,view.y);
+  });
+}
+function successMessage(fn,args){
+  if(fn==='apiClock')return args[1]==='prichod'?'Příchod zaznamenán':'Odchod zaznamenán';
+  if(fn==='apiAdminPublishWeek')return args[1]?'Týden zveřejněn':'Týden skryt';
+  if(fn==='apiAdminActive')return args[1]?'Pracovník aktivován':'Pracovník deaktivován';
+  return ACTION_MESSAGES[fn]||'Změna uložena';
+}
+async function performAction(fn,args,{message,afterSave,refresh=true}={}){
+  if(busy)return;
+  const origin=modalOrigin||captureView();
+  busy=true;document.body.classList.add('working');
+  try{
+    let result;
+    try{result=await api(fn,session,...args);}catch(e){toast(e.message,true);return;}
+    if(afterSave)afterSave(result);
+    let refreshed=true;
+    if(refresh){try{await reload();}catch(e){refreshed=false;render();}}
+    closeModal(false);restoreView(origin);
+    toast(message||successMessage(fn,args));
+    if(!refreshed)toast('Změna je uložená. Přehled se nepodařilo obnovit, obnovte stránku.',true);
+    return result;
+  }finally{busy=false;document.body.classList.remove('working');}
+}
+async function operation(fn,...args){return performAction(fn,args);}
+async function decideRequest(id,approve){
+  if(busy)return;
+  let reason='';
+  if(!approve){reason=window.prompt('Důvod zamítnutí:','');if(reason===null)return;}
+  const origin=captureView();
+  busy=true;document.body.classList.add('working');
+  try{
+    await api('apiAdminDecide',session,id,approve,reason);
+    // Úspěšně vyřízená žádost okamžitě zmizí i před obnovením dat z Tabulek.
+    if(state&&Array.isArray(state.requests))state.requests=state.requests.filter(r=>r.id!==id);
+    render();restoreView(origin);
+    toast(approve?'Žádost schválena':'Žádost zamítnuta');
+    try{await reload();restoreView(origin);}
+    catch(e){toast('Změna je uložená. Přehled se nepodařilo obnovit, obnovte stránku.',true);}
+  }catch(e){
+    console.error('SCHVALENI_CHYBA:'+e.message);toast((approve?'Schválení':'Zamítnutí')+' se nepodařilo: '+e.message,true);
+    window.alert((approve?'Schválení':'Zamítnutí')+' se nepodařilo: '+e.message);
+  }finally{busy=false;document.body.classList.remove('working');}
+}
+function saveToken(token){session=token;try{localStorage.setItem('stefan_session',token);}catch(e){toast('Prohlížeč neukládá přihlášení. Po zavření stránky můžete potřebovat nový přístup.',true);}}
+function clearToken(){session='';state=null;try{localStorage.removeItem('stefan_session');}catch(e){}}
+async function start(){try{const status=await api('apiStatus');if(!status.configured){renderSetupNeeded();return;}if(session){try{await reload();return;}catch(e){clearToken();}}
+  renderAuth(status.initialized);
+}catch(e){app.innerHTML=`<div class="authwrap"><div class="authbox"><h2>Nepodařilo se načíst aplikaci</h2><p>${esc(e.message)}</p><button class="btn" data-action="retry">Zkusit znovu</button></div></div>`;}}
+async function reload(){state=await api('apiSnapshot',session);render();}
+function renderSetupNeeded(){app.innerHTML=`<div class="authwrap"><div class="authbox"><div class="brand"><div class="logo">Š</div><b>Štefan bistro</b></div><h1>Je potřeba první nastavení</h1><p>Vlastník databáze musí v editoru Apps Script nejprve spustit funkci <code>setupProject_</code> a autorizovat přístup.</p><button class="btn" data-action="retry">Zkusit znovu</button></div></div>`;}
+function renderAuth(initialized){
+  app.innerHTML=`<div class="authwrap"><div class="authbox"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><h1>${initialized?'Přístup pro tým':'Založení vedoucího'}</h1><p class="subtle">${initialized?'Zadejte jednorázový osobní pozvánkový kód od vedoucího. Po aktivaci zůstane přihlášení uložené v tomto prohlížeči.':'První nastavení smí provést pouze Michal Urbánek pomocí kódu v protokolu Apps Script.'}</p>
+  <form class="form" id="access-form" data-initialized="${initialized?'yes':'no'}"><div class="field"><label for="access-code">${initialized?'Pozvánkový kód':'Inicializační kód'}</label><input id="access-code" name="code" type="password" autocomplete="off" minlength="4" required placeholder="Vložte osobní nebo vedoucí kód"></div><button class="btn" type="submit">${initialized?'Aktivovat přístup':'Založit vedoucího'}</button></form><p class="mini subtle">Přístupový kód je osobní. Nikdy ho neposílejte do veřejné skupiny.</p></div></div>`;
+}
+function navButton(id,label){return `<button type="button" data-nav="${id}" class="${page===id?'on':''}">${label}</button>`;}
+function render(){if(!state){start();return;}
+  app.innerHTML=`<main class="shell"><header class="top"><div class="brand"><div class="logo">Š</div><div><b>Štefan bistro</b><small>Plán směn</small></div></div><div class="user"><div><strong>${esc(state.user.jmeno)}</strong><small>${adm()?'Vedoucí':'Pracovník'}</small></div><button class="btn secondary small" data-action="logout">Odhlásit</button></div></header>
+  <nav class="tabs" aria-label="Hlavní navigace">${navButton('prehled','Plánování směn')}${navButton('moje','Moje směny')}${navButton('dostupnost','Dostupnost')}<a href="/catalog/" class="catalog-link">Katalog a receptury</a>${adm()?navButton('sprava','Tým a správa'):''}</nav><section id="content">${content()}</section><footer>Štefan bistro · Soukromý plánovací systém směn. Časy: Europe/Prague.</footer></main>`;
+}
+function heading(title,sub='',actions=''){return `<div class="pagehead"><div><h1>${esc(title)}</h1><p class="subtle">${esc(sub)}</p></div>${actions}</div>`;}
+function periodNav(){const m=view==='month';const label=m?new Intl.DateTimeFormat('cs-CZ',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(monday.slice(0,7)+'-01T12:00:00Z')):longDate(monday)+' – '+longDate(addDays(monday,6));return '<div class="periodnav"><div class="seg viewseg"><button data-action="viewweek" class="'+(!m?'on':'')+'">Týden</button><button data-action="viewmonth" class="'+(m?'on':'')+'">Měsíc</button></div><div class="weeknav"><button class="btn secondary small" data-action="prev-period" aria-label="Předchozí období">←</button><span>'+label+'</span><button class="btn secondary small" data-action="next-period" aria-label="Další období">→</button></div></div>'; }
+function weekNav(){return periodNav();}
+function content(){if(page==='prehled')return overview();if(page==='moje')return myShifts();if(page==='dostupnost')return availability();if(page==='sprava'&&adm())return admin();return overview();}
+function overview(){const d=view==='month'?monthDates():dates();const shifts=state.shifts;const published=shifts.filter(s=>s.stav==='zverejneno').length;
+  let html=heading(view==='month'?'Měsíční rozpis':'Týmový rozpis', 'Společný přehled směn a jejich obsazení.',periodNav());
+  if(!published&&!adm())html+='<div class="empty">Vedoucí zatím nezveřejnil žádné směny.</div>';
+  html+=`<div class="cards ${view==='month'?'monthcards':''}">`;
+  for(let i=0;i<d.length;i++){
+    const day=d[i];const ss=shifts.filter(s=>s.datum===day).sort((a,b)=>a.od.localeCompare(b.od));
+    html+=`<div class="day ${day===todayPrague()?'today':''}"><h3>${weekday(day)}<span>${day.slice(-2).replace(/^0/,'')}</span></h3>`;
+    for(const s of ss){const as=assigned(s.id),free=Math.max(0,Number(s.kapacita)-as.length);html+=`<div class="shift"><strong>${esc(s.od)}–${esc(s.do)}</strong><div>${esc(position(s.pozice_id))}</div>${s.stav!=='zverejneno'?tag('koncept'):''}<p>${as.length?as.map(a=>esc(name(a.pracovnik_id))).join('<br>'):'<em>Neobsazeno</em>'}</p><small>${free?`Volná místa: ${free}`:'Obsazeno'}</small>`;
+    if(s.stav==='zverejneno'&&free&&!own(s.id)&&!pending(s.id,'prihlaseni'))html+=`<button class="btn small outline" data-action="claim" data-id="${esc(s.id)}">Přihlásit se</button>`;
+    if(pending(s.id,'prihlaseni'))html+='<span class="pill amber">Žádost čeká</span>';
+    html+='</div>';}
+    if(!ss.length)html+='<small class="subtle">Žádná směna</small>';
+    html+='</div>';
+  }
+  html+='</div><p class="help">Plán schvaluje vedoucí. Přihlášení na volnou směnu je žádost, nikoli automatické přiřazení.</p>';
+  return html;
+}
+function myShifts(){const my=state.shifts.filter(s=>own(s.id)).sort((a,b)=>a.datum.localeCompare(b.datum)||a.od.localeCompare(b.od));
+  const d=dates();const weekH=my.filter(s=>d.includes(s.datum)).reduce((n,s)=>n+planned(s),0);
+  const month=todayPrague().slice(0,7);const monH=my.filter(s=>s.datum.startsWith(month)).reduce((n,s)=>n+planned(s),0);
+  let h=heading('Moje směny','Přidělené směny, požadavky a naplánované hodiny.');
+  h+=`<div class="summary"><div class="metric"><strong>${hours(weekH)}</strong><small>Plán tento týden</small></div><div class="metric"><strong>${hours(monH)}</strong><small>Plán tento měsíc</small></div></div><div class="grid"><section class="panel"><h2>Přidělené směny</h2><ul class="list">`;
+  h+=my.length?my.slice(-30).map(s=>`<li><div class="row spaced"><div><b>${longDate(s.datum)} · ${esc(s.od)}–${esc(s.do)}</b><div class="subtle mini">${esc(position(s.pozice_id))} · ${hours(planned(s))}</div></div>${s.stav==='zverejneno'&&!pending(s.id,'uvolneni')?`<button class="btn secondary small" data-action="release" data-id="${esc(s.id)}">Požádat o uvolnění</button>`:pending(s.id,'uvolneni')?'<span class="pill amber">Čeká uvolnění</span>':''}</div></li>`).join(''):'<li class="subtle">Dosud nemáte přidělenou směnu.</li>';
+  h+=`</ul></section><section class="panel"><h2>Nová žádost</h2><form id="new-request" class="form"><div class="field"><label>Typ žádosti</label><select name="typ" id="request-type"><option value="navrh">Navrhnout novou směnu</option><option value="volno">Požádat o volno</option></select></div><div class="field"><label>Datum</label><input type="date" name="datum" value="${esc(todayPrague())}" required></div><div class="grid"><div class="field"><label>Od (pro návrh směny)</label><input type="time" name="od" value="09:00"></div><div class="field"><label>Do (pro návrh směny)</label><input type="time" name="do" value="15:00"></div></div><div class="field"><label>Poznámka</label><textarea name="poznamka" maxlength="300" placeholder="Nepovinné"></textarea></div><button type="submit" class="btn">Odeslat žádost</button></form><p class="mini subtle">Směna se zapíše do kalendáře až po schválení.</p></section></div>`;
+  h+='<section class="panel"><h2>Moje žádosti</h2><ul class="list">';
+  const r=state.requests.filter(x=>x.pracovnik_id===state.user.id).sort((a,b)=>b.vytvoreno.localeCompare(a.vytvoreno));
+  h+=r.length?r.map(x=>`<li><div class="row spaced"><div><b>${esc(TYPE[x.typ]||x.typ)}</b> ${tag(x.stav)}<div class="subtle mini">${esc(longDate(x.datum))} ${esc(x.od)} ${esc(x.do)} · ${esc(x.poznamka||'')}</div>${x.vyjadreni?`<small>Vedoucí: ${esc(x.vyjadreni)}</small>`:''}</div>${x.stav==='ceka'?`<button class="btn ghost small" data-action="cancelrequest" data-id="${esc(x.id)}">Zrušit</button>`:''}</div></li>`).join(''):'<li class="subtle">Zatím žádné žádosti.</li>';
+  return h+'</ul></section>';
+}
+function availability(){let h=heading('Moje dostupnost','Vyplň, kdy můžeš nebo nemůžeš pracovat. Dostupnost není schválená směna.',weekNav());
+  h+='<section class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Den</th><th>Dostupnost</th><th>Od</th><th>Do</th><th>Poznámka</th><th></th></tr></thead><tbody>';
+  for(const date of dates()){const a=state.availability.find(x=>x.pracovnik_id===state.user.id&&x.datum===date)||{};
+    h+=`<tr><td class="no-break"><b>${esc(longDate(date))}</b></td><td><select class="input" data-avtype="${date}"><option value="smazat">Nezadáno</option>${Object.entries(AV).map(([k,v])=>`<option value="${k}" ${a.typ===k?'selected':''}>${v}</option>`).join('')}</select></td><td><input class="input" type="time" data-avfrom="${date}" value="${esc(a.od||'')}"></td><td><input class="input" type="time" data-avto="${date}" value="${esc(a.do||'')}"></td><td><input class="input" data-avnote="${date}" value="${esc(a.poznamka||'')}" maxlength="200" placeholder="Volitelné"></td><td><button class="btn small" data-action="saveavailability" data-id="${date}">Uložit</button></td></tr>`;
+  }
+  h+='</tbody></table></div></section>';
+  return h;
+}
+function attendance(){const user=state.user.id;
+  const my=state.shifts.filter(s=>own(s.id)).sort((a,b)=>b.datum.localeCompare(a.datum));
+  const att=state.attendance.filter(a=>a.pracovnik_id===user).sort((a,b)=>b.prichod.localeCompare(a.prichod));
+  const td=todayPrague();let h=heading('Docházka','Příchod a odchod se zaznamenávají skutečným časem serveru.');
+  h+='<section class="panel"><h2>Záznam příchodu a odchodu</h2><ul class="list">';
+  const recent=my.filter(s=>s.datum>=addDays(td,-2)&&s.datum<=addDays(td,1));
+  h+=recent.length?recent.map(s=>{const a=att.find(x=>x.smena_id===s.id);
+    return `<li><div class="row spaced"><div><b>${longDate(s.datum)} · ${esc(s.od)}–${esc(s.do)}</b><div class="mini subtle">${a?`Příchod: ${dateTime(a.prichod)} | Odchod: ${dateTime(a.odchod)}`:'Zatím bez záznamu'}</div></div>${!a?`<button class="btn small" data-action="clockin" data-id="${esc(s.id)}">Příchod</button>`:!a.odchod?`<button class="btn small" data-action="clockout" data-id="${esc(s.id)}">Odchod</button>`:'<span class="pill green">Zapsáno</span>'}</div></li>`;
+  }).join(''):'<li class="subtle">V okolí dnešního data nemáte přidělenou směnu.</li>';
+  h+='</ul></section><section class="panel"><h2>Moje skutečně odpracované hodiny</h2><ul class="list">';
+  h+=att.length?att.slice(0,40).map(a=>`<li class="row spaced"><span><b>${dateTime(a.prichod)}</b> – ${dateTime(a.odchod)} ${a.oprava==='ano'?'<span class="pill amber">Opraveno</span>':''}</span><strong>${a.odchod?hours(worked(a)):'Otevřeno'}</strong></li>`).join(''):'<li class="subtle">Zatím žádné záznamy.</li>';
+  return h+'</ul></section><p class="help">Časový záznam není automatickým výpočtem mzdy ani náhrad. Případnou opravu provede vedoucí s uvedením důvodu.</p>';
+}
+function adminNav(){const tabs=[['plan','Plánování'],['zadosti','Schvalování'],['tym','Tým a přístupy'],['pozice','Pozice'],['export','Exporty a historie']];return `<div class="seg">${tabs.map(([k,n])=>`<button data-admin="${k}" class="${adminPage===k?'on':''}">${n}</button>`).join('')}</div>`;}
+function admin(){let h=heading('Správa bistra','Pouze vedoucí: plánování, schvalování a správa týmu.');h+=adminNav();
+  if(adminPage==='plan')h+=adminPlan();
+  if(adminPage==='zadosti')h+=adminRequests();
+  if(adminPage==='tym')h+=adminTeam();
+  if(adminPage==='pozice')h+=adminPositions();
+  if(adminPage==='export')h+=adminExports();
+  return h;
+}
+function posOptions(selected=''){return `<option value="">Bez pozice</option>${state.positions.map(p=>`<option value="${esc(p.id)}" ${selected===p.id?'selected':''}>${esc(p.nazev)}</option>`).join('')}`;}
+function workerOptions(exclude=''){return '<option value="">Vyberte pracovníka</option>'+state.employees.filter(w=>w.aktivni==='ano'&&w.id!==exclude).map(w=>`<option value="${esc(w.id)}">${esc(w.jmeno)}</option>`).join('');}
+function adminPlan(){let h=`<div class="panel"><div class="row spaced"><h2>Směny a obsazení</h2>${weekNav()}</div><div class="btn-row"><button class="btn" data-action="newshift">+ Nová směna</button><button class="btn secondary" data-action="publish">Zveřejnit tento týden</button><button class="btn secondary" data-action="unpublish">Skrýt tento týden</button><button class="btn secondary" data-action="copyweek">Kopírovat do dalšího týdne</button></div></div>`;
+  const list=state.shifts.filter(s=>dates().includes(s.datum)).sort((a,b)=>a.datum.localeCompare(b.datum)||a.od.localeCompare(b.od));
+  h+='<div class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Datum</th><th>Směna</th><th>Obsazení</th><th>Stav</th><th>Akce</th></tr></thead><tbody>';
+  for(const s of list){const arr=assigned(s.id),free=Number(s.kapacita)-arr.length;
+    h+=`<tr><td>${esc(longDate(s.datum))}</td><td><strong>${esc(s.od)}–${esc(s.do)}</strong><br><small>${esc(position(s.pozice_id))}</small></td><td><b>${arr.length}/${esc(s.kapacita)}</b>${free?` <span class="pill amber">Chybí ${free}</span>`:' <span class="pill green">Obsazeno</span>'}<div class="mini">${arr.map(a=>`<span>${esc(name(a.pracovnik_id))} <button class="btn ghost small" title="Odebrat" data-action="unassign" data-id="${esc(s.id)}" data-user="${esc(a.pracovnik_id)}">×</button></span>`).join('<br>')}</div><div class="row"><select class="input" id="assign-${esc(s.id)}" style="max-width:170px">${workerOptions()}</select><button class="btn small secondary" data-action="assign" data-id="${esc(s.id)}">Přiřadit</button></div></td><td>${tag(s.stav)}</td><td><div class="btn-row"><button class="btn secondary small" data-action="editshift" data-id="${esc(s.id)}">Upravit</button><button class="btn danger small" data-action="deleteshift" data-id="${esc(s.id)}">Smazat</button></div></td></tr>`;
+  }
+  h+=list.length?'':'<tr><td colspan="5"><div class="empty">Pro tento týden nejsou vytvořené směny.</div></td></tr>';
+  return h+'</tbody></table></div></div>';
+}
+function adminRequests(){let h='<section class="panel"><h2>Žádosti zaměstnanců</h2><ul class="list">';
+  const requests=state.requests.filter(r=>r.stav==='ceka').sort((a,b)=>a.vytvoreno.localeCompare(b.vytvoreno));
+  h+=requests.length?requests.map(r=>`<li><div class="row spaced"><div><b>${esc(name(r.pracovnik_id))}</b> · ${esc(TYPE[r.typ]||r.typ)} <span class="pill amber">Čeká</span><p class="mini subtle">${esc(longDate(r.datum))} ${esc(r.od)}–${esc(r.do)} ${r.smena_id?'· '+esc(shiftLabel(r.smena_id)):''}<br>${esc(r.poznamka||'')}</p></div><div class="btn-row"><button class="btn small" data-action="approverequest" data-id="${esc(r.id)}">Schválit</button><button class="btn secondary small" data-action="rejectrequest" data-id="${esc(r.id)}">Zamítnout</button></div></div></li>`).join(''):'<li class="subtle">Žádné čekající žádosti.</li>';
+  return h+'</ul></section>';
+}
+function shiftLabel(id){const s=state.shifts.find(x=>x.id===id);return s?`${longDate(s.datum)} ${s.od}–${s.do}`:id;}
+function adminTeam(){let h='<section class="panel"><div class="row spaced"><div><h2>Tým</h2><p class="subtle">Správa pracovníků, rolí a přístupů.</p></div><button class="btn" data-action="newworker">+ Přidat pracovníka</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Jméno</th><th>Role</th><th>E-mail</th><th>Telefon</th><th>Stav a akce</th></tr></thead><tbody>';
+  h+=state.employees.map(w=>'<tr><td><b>'+esc(w.jmeno)+'</b></td><td>'+(w.role==='vedouci'?'Vedoucí':'Obsluha')+'</td><td>'+esc(w.email||'—')+'</td><td>'+esc(w.telefon||'—')+'</td><td>'+(w.aktivni==='ano'?'Aktivní':'Vyřazen')+' <button class="btn secondary small" data-action="editworker" data-id="'+esc(w.id)+'">Upravit</button> '+(w.aktivni==='ano'?'<button class="btn small" data-action="invite" data-id="'+esc(w.id)+'">Nový kód</button> <button class="btn danger small" data-action="deleteworker" data-id="'+esc(w.id)+'">Vyřadit</button>':'<button class="btn secondary small" data-action="restoreworker" data-id="'+esc(w.id)+'">Obnovit</button>')+'</td></tr>').join('');
+  return h+'</tbody></table></div></section>';
+}
+function teamModal(id=''){const w=state.employees.find(x=>x.id===id)||{};
+  modal(id?'Upravit pracovníka':'Přidat pracovníka','<form id="team-form" data-id="'+esc(id)+'" class="form"><div class="field"><label>Jméno a příjmení</label><input name="jmeno" required maxlength="100" value="'+esc(w.jmeno||'')+'"></div><div class="field"><label>Role</label><select name="role"><option value="pracovnik" '+(w.role!=='vedouci'?'selected':'')+'>Obsluha</option><option value="vedouci" '+(w.role==='vedouci'?'selected':'')+'>Vedoucí</option></select></div><div class="field"><label>Telefon</label><input name="telefon" type="tel" value="'+esc(w.telefon||'')+'"></div><div class="field"><label>E-mail</label><input name="email" type="email" value="'+esc(w.email||'')+'"></div><div class="btn-row"><button class="btn" type="submit">Uložit</button><button class="btn secondary" type="button" data-action="closemodal">Zrušit</button></div></form>');
+}
+function adminPositions(){return `<div class="grid"><section class="panel"><h2>Typy pozic</h2><ul class="list">${state.positions.map(p=>`<li><div class="row spaced"><b>${esc(p.nazev)}</b><button class="btn secondary small" data-action="editposition" data-id="${esc(p.id)}">Upravit</button></div></li>`).join('')||'<li class="subtle">Zatím žádné pozice. Volitelné.</li>'}</ul></section><section class="panel"><h2>Nová pozice</h2><form id="position-form" class="form"><div class="field"><label>Název</label><input name="nazev" maxlength="60" required placeholder="Např. Obsluha"></div><div class="field"><label>Barva</label><input name="barva" type="color" value="#af6349"></div><button class="btn" type="submit">Přidat pozici</button></form></section></div>`;}
+function adminAttendance(){let h='<section class="panel"><h2>Záznamy docházky</h2><p class="help">Při opravě je povinný důvod. Změna se zaznamená do historie.</p><div class="tablewrap"><table class="table"><thead><tr><th>Pracovník</th><th>Příchod</th><th>Odchod</th><th>Hodiny</th><th></th></tr></thead><tbody>';
+  const sorted=[...state.attendance].sort((a,b)=>b.prichod.localeCompare(a.prichod));
+  h+=sorted.length?sorted.slice(0,100).map(a=>`<tr><td>${esc(name(a.pracovnik_id))}</td><td>${dateTime(a.prichod)}</td><td>${dateTime(a.odchod)}</td><td>${a.odchod?hours(worked(a)):'Otevřeno'}</td><td><button class="btn secondary small" data-action="editattendance" data-id="${esc(a.id)}">Opravit</button></td></tr>`).join(''):'<tr><td colspan="5">Zatím žádné záznamy.</td></tr>';
+  return h+'</tbody></table></div></section>';
+}
+function adminExports(){let h='<section class="panel"><h2>Export pro vedoucího</h2><p>Stáhněte plán směn ve formátu CSV pro Excel nebo Google Sheets.</p><div class="btn-row"><button class="btn" data-action="exportplan">Stáhnout plán (CSV)</button></div></section>';
+  h+='<section class="panel"><h2>Poslední změny</h2><ul class="list">';
+  h+=(state.audit||[]).slice().reverse().slice(0,50).map(a=>`<li><span class="mini subtle">${dateTime(a.cas)}</span> · <b>${esc(a.akce)}</b> · ${esc(name(a.aktor))} · <span class="subtle mini">${esc(a.objekt)}</span></li>`).join('')||'<li class="subtle">Zatím žádné změny.</li>';
+  return h+'</ul></section>';
+}
+function modal(title,form){if($('#modal'))closeModal(false);modalOrigin=captureView();const wrap=document.createElement('div');wrap.className='modalbg';wrap.id='modal';wrap.innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="row spaced"><h2>${esc(title)}</h2><button class="btn ghost" type="button" data-action="closemodal">✕</button></div>${form}</div>`;document.body.append(wrap);}
+function closeModal(restore=true){const origin=modalOrigin;$('#modal')?.remove();modalOrigin=null;if(restore)restoreView(origin);}
+function shiftModal(id=''){const s=state.shifts.find(x=>x.id===id)||{};
+  modal(id?'Úprava směny':'Nová směna',`<form id="shift-form" class="form two" data-id="${esc(id)}"><div class="field"><label>Datum</label><input name="datum" type="date" required value="${esc(s.datum||todayPrague())}"></div><div class="field"><label>Pozice</label><select name="pozice_id">${posOptions(s.pozice_id)}</select></div><div class="field"><label>Začátek</label><input name="od" type="time" value="${esc(s.od||'09:00')}" required></div><div class="field"><label>Konec</label><input name="do" type="time" value="${esc(s.do||'15:00')}" required></div><div class="field"><label>Počet lidí</label><input type="number" min="1" max="8" name="kapacita" value="${esc(s.kapacita||'1')}" required></div><div class="field"><label>Poznámka</label><input name="poznamka" maxlength="250" value="${esc(s.poznamka||'')}"></div><div class="span2 btn-row"><button class="btn" type="submit">Uložit směnu</button><button class="btn secondary" type="button" data-action="closemodal">Zrušit</button></div></form><p class="mini subtle">Nová směna vznikne jako koncept. Zaměstnancům se zobrazí až po zveřejnění týdne.</p>`);
+}
+function localInput(iso){if(!iso)return '';const date=new Date(iso),formatter=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Prague',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,hourCycle:'h23'});return formatter.format(date).replace(' ','T');}
+function correctionModal(id){const a=state.attendance.find(x=>x.id===id);if(!a)return;
+  modal('Oprava docházky',`<form class="form" id="attendance-form" data-id="${esc(id)}"><p class="mini">Pracovník: <b>${esc(name(a.pracovnik_id))}</b>. Časy zadávejte v českém časovém pásmu.</p><div class="field"><label>Příchod</label><input type="datetime-local" name="prichod" required value="${esc(localInput(a.prichod))}"></div><div class="field"><label>Odchod</label><input type="datetime-local" name="odchod" value="${esc(localInput(a.odchod))}"></div><div class="field"><label>Důvod opravy (povinné)</label><textarea required name="duvod" minlength="5" maxlength="300"></textarea></div><div class="btn-row"><button class="btn" type="submit">Uložit opravu</button><button class="btn secondary" type="button" data-action="closemodal">Zrušit</button></div></form>`);
+}
+function invitationText(data){
+  const url=String(data.appUrl||'');
+  if(!/^https:\/\/script\.google\.com\/(?:a\/macros\/[^/]+\/s|macros\/s)\/[^/?#]+\/exec$/.test(url))throw Error('Chybí platný odkaz na aplikaci.');
+  return `Štefan bistro – přihlášení\n${url}\n\nTvůj osobní kód: ${data.code}\nKód platí ${Number(data.expiresInDays)} dní. Otevři odkaz a vlož kód. Kód nepřeposílej.`;
+}
+function smsHref(phone,message){
+  if(!/^\+[1-9][0-9]{7,14}$/.test(phone))return '';
+  const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
+  return 'sms:'+phone+(ios?'&':'?')+'body='+encodeURIComponent(message);
+}
+function secretModal(data){
+  const text=invitationText(data),phone=String(data.phone||'').replace(/[\s()-]/g,''),sms=smsHref(phone,text);
+  modal('Osobní pozvánka',`<div class="secret"><strong>${esc(data.name)}</strong><p class="mini">Osobní kód platí ${Number(data.expiresInDays)} dní. Celou zprávu pošlete pouze této osobě.</p><label for="invite-message">Zpráva pro pracovníka – odkaz a kód</label><textarea id="invite-message" rows="8" readonly style="width:100%;margin:10px 0">${esc(text)}</textarea><div class="btn-row"><button class="btn small" data-action="copyinvite">Kopírovat celou pozvánku</button>${sms?`<a class="btn small" href="${esc(sms)}" data-action="opensms">Otevřít SMS pro ${esc(phone)}</a>`:'<p class="help">Pro SMS nejprve uložte telefon pracovníka. Pozvánku můžete zkopírovat celou.</p>'}</div></div><p class="help">SMS se otevře v telefonu, odeslání potvrdíte v aplikaci Zprávy. Nová pozvánka ruší předchozí přístupy pracovníka.</p><button class="btn secondary" data-action="closemodal">Zavřít</button>`);
+}
+async function inviteWorker(id){
+  if(busy)return;
+  const origin=captureView();busy=true;document.body.classList.add('working');
+  try{const data=await api('apiAdminInvite',session,id);secretModal(data);modalOrigin=origin;toast('Osobní pozvánka vytvořena – obsahuje odkaz i kód');}
+  catch(e){toast(e.message,true);restoreView(origin);}
+  finally{busy=false;document.body.classList.remove('working');}
+}
+function formObject(form){return Object.fromEntries(new FormData(form).entries());}
+function confirmAsk(txt){return window.confirm(txt);}
+async function exportCSV(kind){if(busy)return;const origin=captureView();busy=true;try{const data=await api('apiAdminExport',session,kind);const s='\uFEFF'+data.rows.map(row=>row.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(';')).join('\r\n');const url=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=data.filename;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);toast('Export připraven');}catch(e){toast(e.message,true);}finally{busy=false;restoreView(origin);}}
+async function copyText(txt){
+  try{await navigator.clipboard.writeText(txt);return true;}
+  catch(e){const ta=document.createElement('textarea');try{ta.value=txt;document.body.append(ta);ta.select();return document.execCommand('copy');}catch(error){return false;}finally{ta.remove();}}
+}
+
+// Akce přes delegované události, bez externích knihoven.
+document.addEventListener('click',async e=>{
+  if(busy)return;
+  const nav=e.target.closest('[data-nav]');if(nav){page=nav.dataset.nav;render();return;}
+  const an=e.target.closest('[data-admin]');if(an){adminPage=an.dataset.admin;render();return;}
+  const b=e.target.closest('[data-action]');if(!b)return;
+  const act=b.dataset.action,id=b.dataset.id;
+  if(act==='retry'){start();return;}
+  if(act==='closemodal'){closeModal();return;}
+  if(act==='copyinvite'){const okay=await copyText($('#invite-message')?.value||'');if(okay)closeModal();toast(okay?'Celá pozvánka zkopírována – odkaz i kód':'Zkopírujte zprávu ručně',!okay);return;}
+  if(act==='opensms'){setTimeout(()=>{closeModal();toast('SMS připravena. Odeslání potvrďte v telefonu.');},0);return;}
+  if(act==='viewweek'||act==='viewmonth'){view=act==='viewmonth'?'month':'week';render();return;}
+  if(act==='prev-period'||act==='next-period'){const dir=act==='prev-period'?-1:1;if(view==='week'){monday=addDays(monday,dir*7);}else{const d=new Date(monday.slice(0,7)+'-01T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+dir);monday=d.toISOString().slice(0,10);}render();return;}
+  if(act==='logout'){busy=true;try{await api('apiLogout',session);clearToken();await start();toast('Odhlášeno');}catch(e){toast('Odhlášení se nepodařilo: '+e.message,true);}finally{busy=false;}return;}
+  if(act==='claim'){await operation('apiRequest',{typ:'prihlaseni',smena_id:id});return;}
+  if(act==='release'){if(confirmAsk('Požádat o uvolnění ze směny?'))await operation('apiRequest',{typ:'uvolneni',smena_id:id});return;}
+  if(act==='cancelrequest'){if(confirmAsk('Zrušit čekající žádost?'))await operation('apiCancelRequest',id);return;}
+  if(act==='clockin'||act==='clockout'){await operation('apiClock',id,act==='clockin'?'prichod':'odchod');return;}
+  if(act==='saveavailability'){const d=id,obj={datum:d,typ:document.querySelector(`[data-avtype="${d}"]`).value,od:document.querySelector(`[data-avfrom="${d}"]`).value,do:document.querySelector(`[data-avto="${d}"]`).value,poznamka:document.querySelector(`[data-avnote="${d}"]`).value};await operation('apiAvailability',obj);return;}
+  if(!adm())return;
+  if(act==='newshift'){shiftModal();return;}
+  if(act==='editshift'){shiftModal(id);return;}
+  if(act==='deleteshift'){if(confirmAsk('Smazat směnu? Tento krok nelze vrátit.'))await operation('apiAdminDeleteShift',id);return;}
+  if(act==='assign'){const u=document.getElementById('assign-'+id)?.value;if(!u){toast('Vyberte pracovníka',true);return;}await operation('apiAdminAssign',id,u);return;}
+  if(act==='unassign'){if(confirmAsk('Odebrat pracovníka ze směny?'))await operation('apiAdminUnassign',id,b.dataset.user);return;}
+  if(act==='publish'||act==='unpublish'){if(confirmAsk(act==='publish'?'Zveřejnit všechny směny tohoto týdne?':'Skrýt všechny směny tohoto týdne?'))await operation('apiAdminPublishWeek',monday,act==='publish');return;}
+  if(act==='copyweek'){if(confirmAsk('Kopírovat rozpis jako koncept do následujícího týdne, bez přiřazených lidí?'))await operation('apiAdminCopyWeek',monday,addDays(monday,7));return;}
+  if(act==='approverequest'||act==='rejectrequest'){e.preventDefault();e.stopPropagation();await decideRequest(id,act==='approverequest');return;}
+  if(act==='invite'||act==='smsinvite'){await inviteWorker(id);return;}
+  if(act==='newworker'){teamModal();return;}
+  if(act==='editworker'){teamModal(id);return;}
+  if(act==='deleteworker'){if(confirmAsk('Vyřadit pracovníka? Historické směny zůstanou zachované.'))await operation('apiAdminTeamDelete',id);return;}
+  if(act==='restoreworker'){await operation('apiAdminActive',id,true);return;}
+  if(act==='toggleactive'){if(confirmAsk('Změnit stav pracovníka?'))await operation('apiAdminActive',id,b.dataset.val==='on');return;}
+  if(act==='editposition'){const p=state.positions.find(p=>p.id===id);const naz=window.prompt('Název pozice:',p?.nazev||'');if(!naz)return;await operation('apiAdminPosition',{id,nazev:naz,barva:p?.barva||'#af6349'});return;}
+  if(act==='editattendance'){correctionModal(id);return;}
+  if(act==='exportplan'||act==='exportattendance'){await exportCSV(act==='exportplan'?'plan':'dochazka');return;}
+});
+document.addEventListener('submit',async e=>{
+  const form=e.target;if(!form.id)return;e.preventDefault();if(busy)return;const data=formObject(form);
+  if(form.id==='access-form'){
+    if(busy)return;busy=true;
+    try{const result=await api(form.dataset.initialized==='yes'?'apiJoin':'apiSetupAdmin',data.code);saveToken(result.token);await reload();toast('Přístup aktivován');}catch(ex){toast(ex.message,true);}finally{busy=false;}return;
+  }
+  if(form.id==='new-request'){
+    await operation('apiRequest',{typ:data.typ,datum:data.datum,od:data.typ==='navrh'?data.od:'',do:data.typ==='navrh'?data.do:'',poznamka:data.poznamka});return;
+  }
+  if(form.id==='shift-form'){const r=await operation('apiAdminShift',{...data,id:form.dataset.id});return;}
+  if(form.id==='team-form'){await performAction('apiAdminTeamSave',[{...data,id:form.dataset.id}],{message:form.dataset.id?'Pracovník upraven':'Pracovník přidán'});return;}
+  if(form.classList.contains('phone-form')){await operation('apiAdminPhone',form.dataset.id,data.telefon);return;}
+  if(form.id==='position-form'){await operation('apiAdminPosition',data);return;}
+  if(form.id==='attendance-form'){
+    const from=new Date(data.prichod),to=data.odchod?new Date(data.odchod):null;
+    if(isNaN(from.getTime())||(to&&isNaN(to.getTime()))){toast('Neplatný čas',true);return;}
+    const r=await operation('apiAdminAttendance',form.dataset.id,from.toISOString(),to?to.toISOString():'',data.duvod);return;
+  }
+});
+start();
+})();
+</script>
+</body>
+</html>
